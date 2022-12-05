@@ -2,7 +2,8 @@ import fsPromises from 'fs/promises';
 
 const read = async () => {
   try {
-    const data = await fsPromises.readFile('./files/fileToRead.txt', {
+    const readPath = new URL('./files/fileToRead.txt', import.meta.url);
+    const data = await fsPromises.readFile(readPath, {
       encoding: 'utf8',
     });
     console.log(data);

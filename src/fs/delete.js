@@ -2,7 +2,8 @@ import fsPromises from 'fs/promises';
 
 const remove = async () => {
   try {
-    await fsPromises.unlink('./files/fileToRemove.txt');
+    const deletePath = new URL('./files/fileToRemove.txt', import.meta.url);
+    await fsPromises.unlink(deletePath);
   } catch (err) {
     throw new Error('FS operation failed');
   }
