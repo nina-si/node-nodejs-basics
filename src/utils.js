@@ -1,3 +1,5 @@
+import fsPromises from 'fs/promises';
+
 export const isFileExist = async (path) => {
   try {
     await fsPromises.access(path);

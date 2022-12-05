@@ -1,9 +1,9 @@
 import fsPromises from 'fs/promises';
-import { isFileExist } from '../utils';
+import { isFileExist } from '../utils.js';
 
 const create = async () => {
   try {
-    const path = './files/fresh.txt';
+    const path = new URL('./files/fresh.txt', import.meta.url);
     const fileExists = await isFileExist(path);
     if (!fileExists) {
       const data = 'I am fresh and young';
